@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../files_bioinfo2022"
+		},
+		{
+			"name": "Baekjoon",
+			"path": "../Baekjoon"
+		}
+	],
+	"settings": {}
+}
