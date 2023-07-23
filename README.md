@@ -1,1 +1,3 @@
-# 프로그래밍 연습 과제 저장할 것
+# Programming_practice
+
+Personal practice of programming
