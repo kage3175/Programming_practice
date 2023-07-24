@@ -10,8 +10,8 @@ cp_callback = tf.keras.callbacks.ModelCheckpoint(filepath=checkpoint_path,
                                                  verbose=1)
 
 model = tf.keras.models.Sequential([
-    tf.keras.layers.Dense(30, activation='tanh'),
-    tf.keras.layers.Dense(40, activation = 'tanh'),
+    tf.keras.layers.Dense(50, activation='tanh'),
+    tf.keras.layers.Dense(50, activation = 'tanh'),
     tf.keras.layers.Dense(1, activation='sigmoid')
 ])
 
@@ -48,7 +48,8 @@ set_input.pop()
 set_output.pop()
 
 model.compile(optimizer='adam', loss = 'binary_crossentropy', metrics=['accuracy'])
-model.fit(np.array(set_input), np.array(set_output), epochs=500, callbacks=[cp_callback])
+model.fit(np.array(set_input), np.array(set_output), epochs=300, callbacks=[cp_callback])
+''', callbacks=[cp_callback]'''
 
 print(input_set)
 
