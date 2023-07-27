@@ -44,15 +44,15 @@ while True:
 
 file.close()
 
-set_input.pop()
-set_output.pop()
+print(set_input.pop())
+print(set_output.pop())
 
 model.compile(optimizer='adam', loss = 'binary_crossentropy', metrics=['accuracy'])
 model.fit(np.array(set_input), np.array(set_output), epochs=300, callbacks=[cp_callback])
 ''', callbacks=[cp_callback]'''
 
-print(input_set)
+input = [-0.448678, 1.1455777999999999, -0.035400999999999995, 0.4473527, 1.2269018, 0.11706869999999998, -0.19683140000000002, -0.7922515, -0.286518, 0.24051189999999997, 0.6742215, 0.7411145, 0.847018, -0.1024381, 0.3855356, 0.7117288, 0.2357859, -0.6756875, 0.032415482690000004, 0.004034089156]
 
-expact = model.predict(np.array([input_set]))
+expact = model.predict([input])
 
 print(expact)
