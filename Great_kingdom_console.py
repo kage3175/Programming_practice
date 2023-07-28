@@ -139,19 +139,35 @@ def main():
         board[i][SIZE+1]=3
 
     turn = 1
+    cnt_total_turn = 0
+    trigger_wrong_input = False
 
     while 1:
-        print("\n다음 수를 둘 좌표를 x y 형태로 입력해주세요: ", end = " ")
+        cnt_total_turn += 1
+        print("\n다음 수를 둘 좌표를 x y 형태로 입력해주세요(-1 -1 입력시 계가): ", end = " ")
         x,y=map(int, input().split())
-        board[x][y] = turn
-        if turn == 1:
-            turn = 2
+        if x == -1 and y == -1 and cnt_total_turn > 1:
+            house_black = 0
+            house_white = 0
+            for cluster in clusters_black_house:
+                for house in cluster:
+                    house_black+=1
+            for cluster in clusters_white_house:
+                for house in cluster:
+                    house_white+=1
+            print(f'흑 집: {house_black}  백 집: {house_white}')
         else:
-            turn = 1
-        make_cluster(board, mark_cluster, 1, SIZE+1)
-        #house_black, house_white = count_house(board, 1, SIZE+1)
-        print_board(board, 1, SIZE+1)
-        #print(f'흑: {house_black}집  백: {house_white}집')
-        print(clusters_blank, clusters_black, clusters_white, clusters_black_house, clusters_white_house)
+            if (x < 1 or x > 9) and (y < 1 or y > 9):
+                continue
+            board[x][y] = turn
+            if turn == 1:
+                turn = 2
+            else:
+                turn = 1
+            make_cluster(board, mark_cluster, 1, SIZE+1)
+            #house_black, house_white = count_house(board, 1, SIZE+1)
+            print_board(board, 1, SIZE+1)
+            #print(f'흑: {house_black}집  백: {house_white}집')
+            print(clusters_blank, clusters_black, clusters_white, clusters_black_house, clusters_white_house)
 
 main()
