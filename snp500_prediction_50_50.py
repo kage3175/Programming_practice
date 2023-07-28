@@ -55,4 +55,11 @@ input = [-0.448678, 1.1455777999999999, -0.035400999999999995, 0.4473527, 1.2269
 
 expact = model.predict([input])
 
-print(expact)
+if expact > 0.9:
+    print(f'증가, expact={expact[0][0]}')
+elif expact > 0.5:
+    print(f'아마도 증가, expact={expact[0][0]}')
+elif expact > 0.1:
+    print(f'아마도 감소, expact={expact[0][0]}')
+else:
+    print(f'감소, expact={expact[0][0]}')
