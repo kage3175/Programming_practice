@@ -27,6 +27,9 @@ print(str(addr), '에서 접속되었습니다.')
 sender = threading.Thread(target = send, args = (connectionSock, ))
 receiver = threading.Thread(targer = receive, args = (connectionSock, ))
 
+sender.start()
+receiver.start()
+
 while True:
     time.sleep(1)
-    
+    pass
