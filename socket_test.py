@@ -25,7 +25,7 @@ connectionSock, addr = serverSock.accept()
 print(str(addr), '에서 접속되었습니다.')
 
 sender = threading.Thread(target = send, args = (connectionSock, ))
-receiver = threading.Thread(targer = receive, args = (connectionSock, ))
+receiver = threading.Thread(target = receive, args = (connectionSock, ))
 
 sender.start()
 receiver.start()
