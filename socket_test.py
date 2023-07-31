@@ -30,6 +30,10 @@ receiver = threading.Thread(target = receive, args = (connectionSock, ))
 sender.start()
 receiver.start()
 
+cnt=0
 while True:
     time.sleep(1)
+    cnt+=1
+    msg = "Host notifies " + str(cnt) + " seconds has gone\n"
+    connectionSock.send(msg.encode('utf-8'))
     pass
