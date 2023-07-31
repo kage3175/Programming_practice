@@ -16,9 +16,10 @@ def receive(sock):
         print('\n상대방:', recvData.decode('utf-8'))
         
 clientSock = socket(AF_INET, SOCK_STREAM)
-clientSock.connect(('192.168.55.206', 8081))
+connectionSock, addr = clientSock.connect(('192.168.55.206', 8081))
 
 print('접속완료')
+print(addr)
 
 sender = threading.Thread(target = send, args = (clientSock, ))
 receiver = threading.Thread(target = receive, args = (clientSock, ))
