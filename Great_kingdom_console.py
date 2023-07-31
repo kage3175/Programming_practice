@@ -168,6 +168,7 @@ def main():
             #house_black, house_white = count_house(board, 1, SIZE+1)
             print_board(board, 1, SIZE+1)
             #print(f'흑: {house_black}집  백: {house_white}집')
-            print(clusters_blank, clusters_black, clusters_white, clusters_black_house, clusters_white_house)
+            print(clusters_blank, clusters_black, clusters_white)
+            print(clusters_black_house, clusters_white_house)
 
 main()
